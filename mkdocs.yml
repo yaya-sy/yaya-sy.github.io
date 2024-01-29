@@ -1,4 +1,7 @@
 site_name: Yaya Sy
+# Repository
+repo_name: yaya-sy/yaya-sy.github.io
+repo_url: https://github.com/yaya-sy/yaya-sy.github.io
 theme:
   name: material
   palette: 
@@ -15,6 +18,8 @@ theme:
         icon: material/toggle-switch-off-outline
         name: Switch to light mode
       primary: black
+  features:
+    - navigation.tabs
 
 extra:
   social:
@@ -22,5 +27,27 @@ extra:
     link: https://github.com/yaya-sy
   - icon: fontawesome/brands/twitter
     link: https://twitter.com/seygalare
-  - icon: fontawesome/brands/linkedin
-    link: https://linkedin.com/in/yaya-sy-a8473023a/
+plugins:
+  - blog
+  - rss:
+      match_path: blog/posts/.* 
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - News:
+    - news/index.md
+  - Blog:
+    - blog/index.md
