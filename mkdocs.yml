@@ -29,6 +29,7 @@ extra:
     link: https://twitter.com/seygalare
 plugins:
   - blog
+  - post_dir: "{blog}/posts"
   - rss:
       match_path: blog/posts/.* 
       date_from_meta:
