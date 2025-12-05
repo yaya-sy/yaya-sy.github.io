@@ -1,0 +1,70 @@
+site_name: yaya.
+site_description: Yaya's Website
+site_url: https://yourdomain.com  # Update with your actual domain
+
+nav:
+  - Home:
+    - index.md
+  - Blog:
+    - blogpost.md
+  - Research:
+    - research.md
+  - About:
+    - about.md
+
+theme:
+  name: material
+  palette: 
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: black
+      accent: white
+
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: black
+      accent: black
+  
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+  
+  font:
+    text: Inter
+    code: Roboto Mono
+
+plugins: []  # This disables the search plugin
+
+extra:
+  social:
+  - icon: fontawesome/brands/github
+    link: https://github.com/yaya-sy
+    name: Soynade on GitHub
+  - icon: fontawesome/brands/twitter
+    link: https://twitter.com/seygalare
+    name: Follow us on Twitter
+  - icon: fontawesome/brands/linkedin
+    link: https://linkedin.com/in/yaya-sy-a8473023a/
+    name: Connect on LinkedIn
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: false
+
+# Custom CSS to hide the logo icon and maintain minimalist design
+extra_css:
+  - stylesheets/extra.css

@@ -1,0 +1,85 @@
+{% extends "main.html" %}
+
+{% block htmltitle %}
+  <title>{{ config.site_name }}</title>
+{% endblock %}
+
+{% block content %}
+  <!-- Hero Section with Background Image -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Intelligence<br/>Reimagined</h1>
+      <p>We create AI systems that solve real problems. From breakthrough research to production-ready solutions, we're advancing what's possible with artificial intelligence.</p>
+      <div class="hero-buttons">
+        <a href="{{ 'products/' | url }}" class="md-button md-button--primary">Explore Our Work</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Product Showcase -->
+  <section class="product-section">
+    <div class="product-visual-placeholder">
+      <div class="product-placeholder-content">
+        <span class="product-icon">🤖</span>
+        <h3>Your AI Product</h3>
+      </div>
+    </div>
+    <div class="product-content">
+      <h2>Our Flagship Solution</h2>
+      <p>Powerful AI technology designed for real-world applications. From research to production, experience the future today.</p>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="features-section">
+    <h2>What We Build</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3>Advanced AI</h3>
+        <p>State-of-the-art machine learning models that deliver unmatched performance and accuracy.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Lightning Fast</h3>
+        <p>Optimized for speed and efficiency, processing data in real-time at scale.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure & Reliable</h3>
+        <p>Enterprise-grade security with 99.9% uptime. Your data is always protected.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach Section -->
+  <section class="approach-section">
+    <h2>Our Approach</h2>
+    <div class="approach-grid">
+      <div class="approach-item">
+        <strong>Research-Driven Innovation</strong>
+        <p>Our team publishes in top-tier conferences and contributes to advancing AI.</p>
+      </div>
+      <div class="approach-item">
+        <strong>Production-Ready Systems</strong>
+        <p>We build technology that scales from prototype to enterprise deployment.</p>
+      </div>
+      <div class="approach-item">
+        <strong>Ethical & Transparent</strong>
+        <p>We prioritize fairness, safety, and accountability in everything we create.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Ready to Get Started?</h2>
+    <p>Let's build something amazing together.</p>
+    <a href="mailto:contact@soynade.com" class="md-button md-button--primary md-button--large">Get in Touch</a>
+  </section>
+{% endblock %}
