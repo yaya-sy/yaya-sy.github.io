@@ -3,14 +3,10 @@ site_description: Yaya's Website
 site_url: https://yourdomain.com  # Update with your actual domain
 
 nav:
-  - Home:
-    - index.md
-  - Blog:
-    - blogpost.md
-  - Research:
-    - research.md
-  - About:
-    - about.md
+  - Home: index.md
+  - Blog: blogpost.md
+  - Research: research.md
+  - About: about.md
 
 theme:
   name: material
