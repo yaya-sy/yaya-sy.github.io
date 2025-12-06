@@ -1,3 +1,1 @@
----
-template: home.html
----
+Hi
