@@ -4,10 +4,13 @@ site_url: https://yourdomain.com  # Update with your actual domain
 
 nav:
   - Home: index.md
-  - Blog: blogpost.md
+  - Blog:
+    - Hello World: blog/posts/hello-world.md
+    - Finding your way: blog/posts/finding-your-way.md
   - Research: research.md
   - About: about.md
-
+plugins:
+  - blog
 theme:
   name: material
   palette: 
