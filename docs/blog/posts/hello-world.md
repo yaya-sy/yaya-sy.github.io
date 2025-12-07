@@ -1,10 +1,10 @@
 ---
-draft: true 
-date: 2024-01-31 
+draft: false
+date: 2024-12-07
 categories:
-  - Hello
-  - World
+  - Personal
 ---
 
-# Hello world!
-...
+# hello-world
+
+Coming soon...

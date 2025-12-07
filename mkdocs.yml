@@ -4,15 +4,13 @@ site_url: https://yourdomain.com  # Update with your actual domain
 
 nav:
   - Home: index.md
-  - Blog:
-    - Hello World: blog/posts/hello-world.md
-    - Finding your way: blog/posts/finding-your-way.md
-  - Research: research.md
+  - Solutions: solutions.md
+  - Blog: blog/index.md
   - About: about.md
-plugins:
-  - blog
+
 theme:
   name: material
+  custom_dir: overrides
   palette: 
     # Palette toggle for dark mode
     - scheme: slate
@@ -36,12 +34,24 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
+    - navigation.indexes
   
   font:
     text: Inter
     code: Roboto Mono
 
-plugins: []  # This disables the search plugin
+plugins:
+  - blog:
+      blog_dir: blog
+      post_dir: "{blog}/posts"
+      post_url_format: "{slug}"
+      post_readtime: false
+      post_excerpt: optional
+      archive: false
+      categories: false
+      authors: false
+      pagination: false
+      enabled: true
 
 extra:
   social:

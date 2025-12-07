@@ -22,7 +22,7 @@
     --md-accent-bg-color: #ffffff;
     --md-accent-bg-color--light: #ffffff;
     
-    --md-code-bg-color: #ffffff;
+    --md-code-bg-color: #f5f5f5;
     --md-code-fg-color: #000000;
     
     --md-footer-bg-color: #ffffff;
@@ -55,7 +55,7 @@
     --md-accent-bg-color: #000000;
     --md-accent-bg-color--light: #000000;
     
-    --md-code-bg-color: #000000;
+    --md-code-bg-color: #1a1a1a;
     --md-code-fg-color: #ffffff;
     
     --md-footer-bg-color: #000000;
@@ -75,9 +75,56 @@ body {
 }
 
 .md-main,
-.md-content,
+.md-content {
+    background-color: var(--md-default-bg-color) !important;
+}
+
 .md-sidebar {
     background-color: var(--md-default-bg-color) !important;
+}
+
+/* Hide sidebars only on desktop (larger screens) */
+@media screen and (min-width: 76.25em) {
+    /* Hide left sidebar (navigation) */
+    .md-sidebar--primary {
+        display: none !important;
+    }
+    
+    /* Hide right sidebar (table of contents) */
+    .md-sidebar--secondary {
+        display: none !important;
+    }
+    
+    /* Make content full width when sidebars are hidden */
+    .md-sidebar--primary ~ .md-content {
+        margin-left: 0 !important;
+    }
+    
+    .md-content {
+        margin-right: 0 !important;
+        max-width: 100% !important;
+    }
+    
+    .md-content__inner {
+        margin: 0 auto !important;
+        max-width: 1200px !important;
+        padding: 2rem !important;
+    }
+}
+
+/* Remove blog plugin's default styling that creates white bars */
+.md-content__inner::before {
+    content: none !important;
+}
+
+.mdx-container {
+    background-color: var(--md-default-bg-color) !important;
+}
+
+.mdx-hero {
+    background-color: var(--md-default-bg-color) !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* Header styling */
@@ -86,7 +133,7 @@ body {
     color: var(--md-default-fg-color) !important;
 }
 
-/* Navigation tabs */
+/* Navigation tabs - always visible with same style */
 .md-tabs {
     background-color: var(--md-default-bg-color) !important;
 }
@@ -180,6 +227,11 @@ body {
     display: none;
 }
 
+/* Hide hamburger menu button - we don't need it since we have tabs */
+.md-header__button[for="__drawer"] {
+    display: none !important;
+}
+
 /* Keep the site title visible */
 .md-header__title {
     display: block;
@@ -250,7 +302,7 @@ body {
     }
 }
 
-/* Mobile navigation fixes */
+/* Mobile navigation fixes - TABLET AND MOBILE */
 @media screen and (max-width: 76.1875em) {
     /* Fix header positioning */
     .md-header {
@@ -260,161 +312,57 @@ body {
         width: 100%;
     }
     
-    /* Hide tabs on mobile */
+    /* Show tabs on mobile instead of hamburger menu */
     .md-tabs {
-        display: none !important;
-    }
-    
-    /* Full-screen sidebar dropdown from top */
-    .md-sidebar--primary {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100% !important;
-        height: 100vh !important;
-        max-width: 100% !important;
-        transform: translateY(-100%) !important;
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        z-index: 1000 !important;
-        background-color: var(--md-default-bg-color) !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    /* Show sidebar when drawer is checked */
-    #__drawer:checked ~ .md-container .md-sidebar--primary {
-        transform: translateY(0) !important;
-    }
-    
-    .md-sidebar__scrollwrap {
-        background-color: var(--md-default-bg-color) !important;
-        height: 100% !important;
-        width: 100% !important;
-        overflow-y: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    /* Style the navigation */
-    .md-nav--primary {
-        background-color: var(--md-default-bg-color) !important;
-        height: 100% !important;
-        padding-top: 60px !important;
-    }
-    
-    /* Hide the drawer title */
-    .md-nav--primary > .md-nav__title {
-        display: none !important;
-    }
-    
-    /* Style navigation list */
-    .md-nav--primary > .md-nav__list {
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-    
-    /* Remove ALL borders and separators */
-    .md-nav__item {
-        background-color: var(--md-default-bg-color) !important;
-        border: none !important;
-        border-bottom: none !important;
-        border-top: none !important;
-        margin: 0 !important;
-    }
-    
-    .md-nav__item::after,
-    .md-nav__item::before {
-        display: none !important;
-    }
-    
-    .md-nav__separator {
-        display: none !important;
-    }
-    
-    /* Style menu links - left-aligned, no borders */
-    .md-nav--primary .md-nav__link {
-        color: var(--md-default-fg-color) !important;
-        font-size: 1.5rem !important;
-        font-weight: 400 !important;
-        padding: 1.5rem 2rem !important;
-        border: none !important;
-        border-bottom: none !important;
-        border-top: none !important;
-        transition: opacity 0.2s ease !important;
         display: block !important;
-        text-align: left !important;
-        background-color: transparent !important;
+        position: static;
+        transform: none;
+        left: auto;
+        width: 100%;
+        background-color: var(--md-default-bg-color) !important;
     }
     
-    .md-nav--primary .md-nav__link:hover {
-        opacity: 0.6 !important;
-        background-color: transparent !important;
+    /* Center the tabs on mobile */
+    .md-tabs__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 0.5rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
-    .md-nav--primary .md-nav__link--active {
-        font-weight: 600 !important;
-        background-color: transparent !important;
-        opacity: 1 !important;
+    .md-tabs__item {
+        flex: 0 0 auto;
+        white-space: nowrap;
     }
     
-    /* Remove any list styling */
-    .md-nav__list {
-        list-style: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
+    .md-tabs__link {
+        padding: 0 0.6rem;
+        font-size: 0.65rem;
     }
     
-    /* Replace hamburger with Apple-style icon */
-    .md-header__button[for="__drawer"] {
-        display: block;
-        position: relative;
-        width: 44px;
-        height: 44px;
-        z-index: 1002;
+    /* Hide the drawer/sidebar completely on mobile */
+    .md-sidebar--primary {
+        display: none !important;
     }
     
-    .md-header__button[for="__drawer"] svg {
-        display: none;
-    }
-    
-    /* Two horizontal lines (not three) */
-    .md-header__button[for="__drawer"]::before {
-        content: '';
-        position: absolute;
-        width: 18px;
-        height: 1px;
-        background-color: var(--md-default-fg-color);
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 
-            0 -8px 0 0 var(--md-default-fg-color);
-        transition: all 0.3s ease;
-    }
-    
-    /* Transform to X when menu is open */
-    #__drawer:checked ~ .md-header .md-header__button[for="__drawer"]::before {
-        transform: translate(-50%, -50%) rotate(45deg);
-        box-shadow: 0 0 0 0 transparent;
-    }
-    
-    #__drawer:checked ~ .md-header .md-header__button[for="__drawer"]::after {
-        content: '';
-        position: absolute;
-        width: 18px;
-        height: 1px;
-        background-color: var(--md-default-fg-color);
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(-45deg);
-        transition: all 0.3s ease;
-    }
-    
-    /* Hide overlay - we don't need it for full screen */
+    /* Hide overlay */
     .md-overlay {
         display: none !important;
+    }
+}
+
+/* Extra small devices - even smaller text */
+@media screen and (max-width: 400px) {
+    .md-tabs__link {
+        padding: 0 0.5rem;
+        font-size: 0.6rem;
+    }
+    
+    .md-tabs__list {
+        padding: 0 0.25rem;
     }
 }
 
