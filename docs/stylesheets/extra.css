@@ -315,32 +315,46 @@ body {
     /* Show tabs on mobile instead of hamburger menu */
     .md-tabs {
         display: block !important;
-        position: static;
-        transform: none;
-        left: auto;
-        width: 100%;
+        position: fixed !important;
+        top: 3rem !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: none !important;
+        width: 100% !important;
         background-color: var(--md-default-bg-color) !important;
+        z-index: 1000 !important;
     }
     
-    /* Center the tabs on mobile */
+    /* Center the tabs and make them responsive */
     .md-tabs__list {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
-        padding: 0 0.5rem;
+        padding: 0.5rem 0.25rem;
         flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        margin: 0;
+        width: 100%;
     }
     
     .md-tabs__item {
-        flex: 0 0 auto;
+        flex: 1 1 auto;
         white-space: nowrap;
+        text-align: center;
     }
     
     .md-tabs__link {
-        padding: 0 0.6rem;
-        font-size: 0.65rem;
+        padding: 0 0.25rem;
+        font-size: 0.75rem;
+        justify-content: center;
+    }
+    
+    /* Add padding to content to account for fixed header + tabs */
+    .md-main {
+        padding-top: 5.5rem !important;
+    }
+    
+    .md-content {
+        padding-top: 0 !important;
     }
     
     /* Hide the drawer/sidebar completely on mobile */
@@ -356,13 +370,22 @@ body {
 
 /* Extra small devices - even smaller text */
 @media screen and (max-width: 400px) {
+    .md-tabs {
+        top: 3rem !important;
+    }
+    
     .md-tabs__link {
-        padding: 0 0.5rem;
-        font-size: 0.6rem;
+        padding: 0 0.15rem;
+        font-size: 0.7rem;
     }
     
     .md-tabs__list {
-        padding: 0 0.25rem;
+        padding: 0.5rem 0.15rem;
+    }
+    
+    /* Adjust padding for smaller header */
+    .md-main {
+        padding-top: 5rem !important;
     }
 }
 
