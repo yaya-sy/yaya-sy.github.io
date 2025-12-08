@@ -4,8 +4,8 @@ site_url: https://yourdomain.com  # Update with your actual domain
 
 nav:
   - Home: index.md
-  - Solutions: solutions.md
   - Blog: blog/index.md
+  - Research: research.md
   - About: about.md
 
 theme:
@@ -68,6 +68,8 @@ extra:
 markdown_extensions:
   - attr_list
   - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -77,3 +79,9 @@ markdown_extensions:
 # Custom CSS to hide the logo icon and maintain minimalist design
 extra_css:
   - stylesheets/extra.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
