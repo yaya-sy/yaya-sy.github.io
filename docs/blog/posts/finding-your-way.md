@@ -7,4 +7,4 @@ categories:
 
 # Finding your way
 
-Coming soon...
+$$\sum\limits_{i \in I}$$
